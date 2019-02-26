@@ -1,0 +1,14 @@
+version: '2'
+services:
+  registry:
+    image: ddmp/registry
+    ports:
+      - "8761:8761"
+  monitor:
+    image: spring-boot-cloud/monitor
+    ports:
+      - "8040:8040"
+  gateway:
+    image: spring-boot-cloud/gateway
+    ports:
+      - "8060:8060"

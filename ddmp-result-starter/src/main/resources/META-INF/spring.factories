@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+ idata.dmp.web.config.RestReturnValueHandlerConfigurer,\
+idata.dmp.web.config.ExceptionConfig

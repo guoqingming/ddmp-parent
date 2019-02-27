@@ -77,9 +77,9 @@ public class Result<T> implements Serializable{
      * @param data
      * @return
      */
-    public static Result createSuccessData(Object data) {
+    public static <T>Result<T> createSuccessData(T data) {
 
-        return createSuccess().setData(data);
+        return createSuccess().setData(data).setMsg("成功");
     }
 
     public static Result createSuccessMsgCode(int msgCode) {
@@ -121,7 +121,7 @@ public class Result<T> implements Serializable{
         throw new ExceptionResult(result);
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 

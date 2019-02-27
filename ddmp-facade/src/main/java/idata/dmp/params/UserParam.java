@@ -2,6 +2,8 @@ package idata.dmp.params;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @program: ddmp-parent
  * @description: 测试
@@ -9,15 +11,15 @@ import lombok.Data;
  * @create: 2019-02-24 23:22
  **/
 @Data
-public class TestParam {
+public class UserParam implements Serializable {
 
     /**
      *
      */
-    private String param1;
+    private String userName;
 
     /**
      *
      */
-    private String param2;
+    private String password;
 }

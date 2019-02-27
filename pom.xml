@@ -23,8 +23,8 @@
         <module>ddmp-result-starter</module>
         <!--<module>ddmp-biz</module>-->
         <module>ddmp-facade</module>
-        <module>ddmp-service-sample</module>
-        <module>ddmp-service-sample2</module>
+        <module>ddmp-sample</module>
+        <module>ddmp-sample2</module>
         <module>ddmp-service-consumer</module>
     </modules>
 
@@ -106,14 +106,15 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
+                    <!--<executions>-->
+                        <!--<execution>-->
+                            <!--<goals>-->
+                                <!--<goal>repackage</goal>-->
+                            <!--</goals>-->
+                        <!--</execution>-->
+                    <!--</executions>-->
                 </plugin>
+
                 <plugin>
                     <groupId>com.spotify</groupId>
                     <artifactId>docker-maven-plugin</artifactId>

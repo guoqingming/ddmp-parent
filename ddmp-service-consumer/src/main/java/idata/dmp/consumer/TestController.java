@@ -2,7 +2,6 @@ package idata.dmp.consumer;
 
 //import idata.dmp.utils.result.Result;
 import idata.dmp.params.UserParam;
-import idata.dmp.utils.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

@@ -1,10 +1,6 @@
 package idata.dmp.utils.result;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-
 import java.io.Serializable;
-import java.util.Collection;
 
 /**
  *

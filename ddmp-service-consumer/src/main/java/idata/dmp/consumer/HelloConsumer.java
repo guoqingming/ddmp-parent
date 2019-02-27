@@ -1,11 +1,9 @@
 package idata.dmp.consumer;
 
 //import idata.dmp.utils.result.Result;
-import feign.Param;
 import idata.dmp.params.UserParam;
 import idata.dmp.utils.result.Result;
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.*;
 
 /**

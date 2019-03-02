@@ -13,15 +13,14 @@
     <artifactId>ddmp-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <!--<name>${project.artifactId}</name>-->
 
 
     <modules>
         <module>ddmp-registry</module>
         <module>ddmp-gateway</module>
         <module>ddmp-monitor</module>
-        <module>ddmp-result-starter</module>
-        <!--<module>ddmp-biz</module>-->
+        <module>ddmp-web-starter</module>
+        <module>ddmp-mybatis-plugin</module>
         <module>ddmp-facade</module>
         <module>ddmp-sample</module>
         <module>ddmp-sample2</module>
@@ -34,7 +33,6 @@
         <docker.plugin.version>1.0.0</docker.plugin.version>
         <docker.image.prefix>spring-boot-cloud</docker.image.prefix>
         <spring.cloud.version>Dalston.SR4</spring.cloud.version>
-        <!--<spring.cloud.version>Dalston.SR4</spring.cloud.version>-->
         <spring-boot-admin.version>1.5.4</spring-boot-admin.version>
     </properties>
 
@@ -46,10 +44,43 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
-
+    <profiles>
+        <profile>
+            <id>dev1</id>
+            <properties>
+                <profileActive>dev1</profileActive>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>dev2</id>
+            <properties>
+                <profileActive>dev2</profileActive>
+            </properties>
+        </profile>
+        <profile>
+            <id>test1</id>
+            <properties>
+                <profileActive>test1</profileActive>
+            </properties>
+        </profile>
+        <profile>
+            <id>test2</id>
+            <properties>
+                <profileActive>test2</profileActive>
+            </properties>
+        </profile>
+        <profile>
+            <id>release</id>
+            <properties>
+                <profileActive>release</profileActive>
+            </properties>
+        </profile>
+    </profiles>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -61,6 +92,11 @@
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-server-ui</artifactId>
                 <version>${spring-boot-admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>2.1.0.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>de.codecentric</groupId>
@@ -91,11 +127,108 @@
                 <artifactId>swagger-spring-boot-starter</artifactId>
                 <version>1.7.1.RELEASE</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>1.1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>1.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>20.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.31</version>
+            </dependency>
             <dependency>
                 <groupId>com.byit</groupId>
                 <artifactId>ddmp-facade</artifactId>
                 <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign.form</groupId>
+                <artifactId>feign-form</artifactId>
+                <version>3.5.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign.form</groupId>
+                <artifactId>feign-form-spring</artifactId>
+                <version>3.5.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>1.5.18</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.25</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-sleuth</artifactId>
+                <version>2.1.0.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>5.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.5</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>0.1.54</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-client</artifactId>
+                <version>2.6.0</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>servlet-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-common</artifactId>
+                <version>2.6.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-jdbc</artifactId>
+                <version>1.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-exec</artifactId>
+                <version>2.3.4</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.mvel</groupId>
+                <artifactId>mvel2</artifactId>
+                <version>2.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

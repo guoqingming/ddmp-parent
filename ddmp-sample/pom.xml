@@ -27,10 +27,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>de.codecentric</groupId>-->
-        <!--<artifactId>spring-boot-admin-starter-client</artifactId>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -38,13 +34,8 @@
         </dependency>
         <dependency>
             <groupId>com.byit</groupId>
-            <artifactId>ddmp-result-starter</artifactId>
+            <artifactId>ddmp-web-starter</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.18</version>
         </dependency>
         <dependency>
             <groupId>io.github.openfeign</groupId>
@@ -57,12 +48,13 @@
         </dependency>
         <dependency>
             <groupId>com.byit</groupId>
-            <artifactId>ddmp-facade</artifactId>
+            <artifactId>ddmp-sample-facade</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
